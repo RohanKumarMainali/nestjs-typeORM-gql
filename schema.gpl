@@ -10,12 +10,19 @@ type CreateProductDto {
   category: String!
 }
 
+type DeleteProductResponseDto {
+  success: Boolean!
+}
+
 type Query {
   products: [CreateProductDto!]!
+  singleProduct(id: String!): CreateProductDto!
 }
 
 type Mutation {
   createProduct(data: inputProduct!): CreateProductDto!
+  updateProduct(id: String!, data: inputProduct!): CreateProductDto!
+  deleteProduct(id: String!): DeleteProductResponseDto!
 }
 
 input inputProduct {
